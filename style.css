@@ -4,9 +4,9 @@ body {
   margin-top: 50px;
   justify-content: center;
   background-image: url("C:/Users/Matias/Desktop/Test/1352897.jpg");
-  background-size: cover; /* Escala la imagen de fondo para cubrir todo el contenedor */
-  background-position: center; /* Centra la imagen de fondo */
-  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
 button {
   width: 75px;
