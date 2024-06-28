@@ -1,0 +1,148 @@
+body {
+  
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  background-image: url("C:/Users/Matias/Desktop/Test/1352897.jpg");
+  background-size: cover; /* Escala la imagen de fondo para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+}
+button {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+#header {
+  
+  padding: 10px;
+  color: #ffffff;
+
+  font-size: 26px;
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: space-between;
+}
+#header button {
+  background: linear-gradient(to bottom, #3b7288, #292928);
+  width: 80px;
+  height: 40px;
+}
+#container {
+  width: 770px;
+}
+#weekdays {
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  color: #bce6e9;
+  font-family: 'Times New Roman', Times, serif;
+  
+}
+#weekdays div {
+  width: 100px;
+  padding: 10px;
+}
+#calendar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.day {
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0px 0px 3px #CBD4C2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.day:hover {
+  background-color: #e8faed;
+}
+
+.day + #currentDay {
+  background-color:#7dcbf1;
+}
+.event {
+  height: 50px;
+  width: 50px;
+  background-image: url("C:/Users/Matias/Desktop/Test/pngwing.com.png");
+  
+  background-size: cover
+}
+.padding {
+  cursor: default !important;
+  background-color: #FFFCFF !important;
+  box-shadow: none !important;
+}
+#newEventModal, #deleteEventModal {
+  display: none;
+  z-index: 20;
+  padding: 25px;
+  background: linear-gradient(to bottom, #47808f, #2b2a2a);
+  box-shadow: 0px 0px 3px black;
+  border-radius: 5px;
+  width: 350px;
+  height: 600px;
+  top: 100px;
+  left: calc(50% - 175px);
+  position: absolute;
+  font-family: 'Times New Roman';
+  color: #1b233d;
+ 
+}
+#eventTitleInput {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+#eventStartTimeInput{
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+#eventTitleInput.error {
+  border: 2px solid red;
+}
+#cancelButton, #deleteButton {
+  background-color: #d36c6c;
+}
+#saveButton, #closeButton {
+  background-color: #92a1d1;
+}
+#eventText {
+  font-size: 20px;
+}
+#modalBackDrop {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+}
