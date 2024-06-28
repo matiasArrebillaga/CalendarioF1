@@ -3,24 +3,24 @@ let clicked = null;
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
 const calendar = document.getElementById('calendar');
-const newEventModal = document.getElementById('newEventModal');
-const deleteEventModal = document.getElementById('deleteEventModal');
+const newEventModal = document.getElementById('newEventModal'); //////////////
+const deleteEventModal = document.getElementById('deleteEventModal'); ///////////
 const backDrop = document.getElementById('modalBackDrop');
-const eventTitleInput = document.getElementById('eventTitleInput')
-const eventStartTimeInput= document.getElementById ('eventStartTimeInput')
+const eventTitleInput = document.getElementById('eventTitleInput') //////////////
+const eventStartTimeInput= document.getElementById ('eventStartTimeInput') ///////////
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 function openModal(date) {
   clicked = date;
 
-  const eventForDay = events.find(e => e.date === clicked);
+  const eventForDay = events.find(e => e.date === clicked);//
 
   if (eventForDay) {
     document.getElementById('eventText').innerText = eventForDay.title + '\n'+  eventForDay.startTimeInput;
     deleteEventModal.style.display = 'block';
   } else {
     newEventModal.style.display = 'block';
-  }
+  } //
 
   backDrop.style.display = 'block';
 }
@@ -92,7 +92,7 @@ function closeModal() {
   load();
 }
 
-function saveEvent() {
+function saveEvent() {                                          ///////////////////////////////////////////////
   if (eventTitleInput.value) {
     eventTitleInput.classList.remove('error');
 
@@ -108,12 +108,13 @@ function saveEvent() {
     eventTitleInput.classList.add('error');
   }
 }
-
-function deleteEvent() {
+//
+function deleteEvent() {                                          /////////////////////////////////////////////
   events = events.filter(e => e.date !== clicked);
   localStorage.setItem('events', JSON.stringify(events));
   closeModal();
 }
+
 
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
