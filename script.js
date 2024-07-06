@@ -9,6 +9,7 @@ const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput') //////////////
 const eventStartTimeInput= document.getElementById ('eventStartTimeInput') ///////////
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let eventTypeInput;
 
 function openModal(date) {
   clicked = date;
@@ -70,6 +71,12 @@ function load() {
         const eventDiv = document.createElement('div');
         eventDiv.classList.add('event');
         daySquare.appendChild(eventDiv);
+        function cambiarImagen() {
+        if(eventForDay.eventType==="WRC"){
+          eventDiv.style.backgroundImage = "url('C:/Users/Matias/Desktop/Test/wrc-logo-98584C3F7E-seeklogo.com.png')";
+        }
+      }
+      cambiarImagen();
       }
 
       daySquare.addEventListener('click', () => openModal(dayString));
@@ -88,10 +95,21 @@ function closeModal() {
   backDrop.style.display = 'none';
   eventTitleInput.value = '';
   eventStartTimeInput.value= '';
+  eventTypeInput.value='';
+  
   clicked = null;
   load();
 }
+function getSelectedValue() {
+  const radios = document.querySelectorAll('input[name="eventType"]');
 
+  for (const radio of radios) {
+    if (radio.checked) {
+      eventTypeInput = radio.value;
+      break;
+    }
+  }
+}
 function saveEvent() {                                          ///////////////////////////////////////////////
   if (eventTitleInput.value) {
     eventTitleInput.classList.remove('error');
@@ -100,6 +118,7 @@ function saveEvent() {                                          ////////////////
       date: clicked,
       title: eventTitleInput.value,
       startTimeInput: eventStartTimeInput.value,
+      eventType: eventTypeInput,
     });
 
     localStorage.setItem('events', JSON.stringify(events));
